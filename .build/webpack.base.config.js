@@ -34,12 +34,11 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: [getCacheLoader('css'), ...cssLoader]
+        use: [ ...cssLoader]
       },
       {
         test: /\.less$/,
         use: [
-          getCacheLoader('less'), 
           'style-loader', 
           {
             loader: 'css-loader?modules', // 转换 CSS into JS modules
@@ -55,7 +54,6 @@ const config = {
       {
         test: /\.(tsx|ts)?$/,
         use: [
-          getCacheLoader('ts'),
           {
             loader: 'ts-loader',
             options: {
@@ -69,7 +67,6 @@ const config = {
       {
         test: /\.(jsx|js)$/,
         use: [
-          getCacheLoader('js'),
           'babel-loader'
         ],
         exclude: /node_modules/
